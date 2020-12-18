@@ -1,0 +1,2 @@
+# slider
+Javascript-slider-project
