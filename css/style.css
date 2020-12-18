@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+}
+
+.main__slider {
+    display: flex;
+    align-items: center;
+    height: 97vh;
+}
+
+.slider {
+    position: relative;
+    display: flex;
+    width: 1300px;
+    height: 500px;
+    align-items: center;
+    margin: auto;
+    background-color: gray;
+}
+
+.arrow {
+    color: rgb(240, 240, 240);
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+
+.left {
+    display: flex;
+    position: absolute;
+    left: 10px;
+}
+
+.right {
+    display: flex;
+    position: absolute;
+    right: 10px;
+}
+
+.information {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+    align-self: flex-end;
+    color: rgb(240, 240, 240);
+}
+
+footer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.dots {
+    margin: auto;
+}
+
+.dot {
+    margin: 1px;
+    color: rgb(170, 170, 170);
+}
+
+.dot:hover {
+    color: rgb(100, 100, 100);
+    cursor: pointer;
+}
