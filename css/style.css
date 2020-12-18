@@ -15,11 +15,15 @@ body {
     height: 500px;
     align-items: center;
     margin: auto;
-    background-image: url('../img/Gleccsertó-víz.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 100%;
+    background-color: grey;
+    overflow: hidden;
+}
+
+img {
+    position: absolute;
+    max-width: 100%;
+    top: 0;
+    left: 0;
 }
 
 .arrow {
@@ -44,6 +48,7 @@ body {
 
 .information {
     display: flex;
+    position: relative; /*Csak akkor látszódik a kép felett ha relative, vagy absolute a position*/
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 10px;
