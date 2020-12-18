@@ -15,7 +15,11 @@ body {
     height: 500px;
     align-items: center;
     margin: auto;
-    background-color: gray;
+    background-image: url('../img/Gleccsertó-víz.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100%;
 }
 
 .arrow {
