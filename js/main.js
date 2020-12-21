@@ -7,7 +7,7 @@ const leftArrow = document.querySelector('.left');
 const rigthArrow = document.querySelector('.right');
 const information = document.querySelector('.information');
 const dotContainer = document.querySelector('.dots');
-
+let step = 0
 
 //Ezt át kell majd rakni egy modulba
 const imageContainer = [
@@ -34,18 +34,29 @@ const imageContainer = [
 
 ];
 
-function sliderFunc(){
+function sliderFunc() {
     let count = 0
+
     for (let i = 0; i < imageContainer.length; i++) {
         count++
-        imagePlace.innerHTML = `<img ${imageContainer[i].image} alt=""></img>`;
-        information.innerText = imageContainer[i].information;        
-        counter.innerText = `${imageContainer[i].index}/${count}`// Ezzel még lesz valami
+        imagePlace.innerHTML = `<img ${imageContainer[step].image} alt=""></img>`;
+        information.innerText = imageContainer[step].information;
+        counter.innerText = `${imageContainer[step].index}/${count}`// Ezzel még lesz valami
     }
 }
 sliderFunc();
-rigthArrow.addEventListener('click', sliderFunc)
-leftArrow.addEventListener('click', sliderFunc)
+rigthArrow.addEventListener('click', () => {
+    if (step == imageContainer.length -1) {
+        step = -1
+    } else {
+        step++;
+        sliderFunc()
+    }
+})
+leftArrow.addEventListener('click', () => {
+    step--;
+    sliderFunc()
+})
 
 
 
