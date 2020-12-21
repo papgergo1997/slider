@@ -32,11 +32,7 @@ function timer(time) {
             step++;
             sliderFunc()}
     }, time)
-}
-
-dotCreate();
-
-
+};
 
 function sliderFunc(height) {
     let count = 0;
@@ -50,8 +46,6 @@ function sliderFunc(height) {
     };
     timer(5000);   
 };
-
-sliderFunc('500px');
 
 rigthArrow.addEventListener('click', () => {
     something = true;
@@ -94,3 +88,6 @@ function dotCreate() {
         })
     };
 };
+
+dotCreate();
+sliderFunc('500px');
