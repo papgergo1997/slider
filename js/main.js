@@ -17,10 +17,6 @@ let myTimeOut
 
 
 
-function someth() {
-    something = false
-};
-
 function timer(time) {
     myTimeOut = setTimeout(()=>{
         if (step == imageContainer.length - 1) {
