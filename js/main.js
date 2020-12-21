@@ -46,16 +46,18 @@ function sliderFunc() {
 }
 sliderFunc();
 rigthArrow.addEventListener('click', () => {
-    if (step == imageContainer.length - 1) {
-        step = -1
+    if (step == imageContainer.length -1) {
+        step = 0
+        sliderFunc()
     } else {
         step++;
         sliderFunc()
     }
 })
 leftArrow.addEventListener('click', () => {
-    if (step < imageContainer.length) {
-        step == imageContainer.length - 1;
+    if (step == 0) {
+        step = imageContainer.length -1;
+        sliderFunc()
     } else {
         step--;
         sliderFunc()
