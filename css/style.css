@@ -1,24 +1,27 @@
-
-
 @font-face {
     src: url(fonts/roboto/Roboto-Light.ttf);
     font-family: "roboto";
     font-weight: 400;
 }
 
-
 body {
+    
     margin: 0;
     font-family: "roboto";
     font-weight: bold;
 }
 
-.main__slider {
+.section__slider {
     display: flex;
     align-items: center;
     height: 97vh;
 }
 
+
+
+
+
+/*Slider-box*/
 .slider {
     position: relative;
     display: flex;
@@ -26,17 +29,56 @@ body {
     height: 500px;
     align-items: center;
     margin: auto;
-    background-color: grey;
+    background-color: white;
     overflow: hidden;
+    box-shadow: 0 0 20px black;
+    border-radius: 10px;
 }
 
+@media screen and (max-width: 762px) {
+    .slider {
+        height: 265px;
+    }
+}
+
+
+
+
+
+/*Image*/
 img {
     position: absolute;
     max-width: 100%;
     top: 0;
-    left: 0;
+    right: 0;
+    -webkit-animation-name: fade;
+    -webkit-animation-duration: 1.5s;
+    animation-name: fade;
+    animation-duration: 1.5s;
 }
 
+@-webkit-keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+
+
+
+/*Counter*/
 .counter {
     display: flex;
     position: relative;
@@ -45,6 +87,10 @@ img {
     margin: 5px
 }
 
+
+
+
+/*Arrows*/
 .arrow {
     color: rgb(240, 240, 240);
 }
@@ -65,29 +111,40 @@ img {
     right: 10px;
 }
 
+
+
+/*Text*/
 .information {
     display: flex;
-    position: relative; /*Csak akkor látszódik a kép felett ha relative, vagy absolute a position*/
+    position: relative;
+    /*Csak akkor látszódik a kép felett ha relative, vagy absolute a position*/
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 10px;
     align-self: flex-end;
-    color: rgb(180, 180, 180);
+    color: rgb(0, 0, 0);
+    text-shadow: 0 0 9px white;
 }
 
-footer {
-    display: flex;
-    width: 100%;
-    align-items: center;
-}
 
+
+
+
+/*Dots*/
 .dots {
-    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -70px;
 }
 
 .dot {
     margin: 3px;
     color: rgb(170, 170, 170);
+}
+
+.active {
+    color: rgb(100, 100, 100);
 }
 
 .dot:hover {

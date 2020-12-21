@@ -1,4 +1,6 @@
-'use strict'
+'use strict';
+
+import imageContainer from './module.js'
 
 const slider = document.querySelector('.slider');
 const imagePlace = document.querySelector('.image');
@@ -8,69 +10,83 @@ const rigthArrow = document.querySelector('.right');
 const information = document.querySelector('.information');
 const dotContainer = document.querySelector('.dots');
 let step = 0
+let something = false
+let myTimeOut
 
 //Ezt át kell majd rakni egy modulba
-const imageContainer = [
-    {
-        index: 1,
-        image: `src="./img/Gleccsertó-víz.jpg"`,
-        information: 'Egy gleccsertó, valahol Izlandon'
-    },
-    {
-        index: 2,
-        image: `src="./img/alca.jpg"`,
-        information: 'Egy méh mindig tudja, hogyan álcázza magát'
-    },
-    {
-        index: 3,
-        image: `src="./img/Tó_vízjellele.jpg"`,
-        information: 'Víz és levél'
-    },
-    {
-        index: 4,
-        image: `src="./img/bee-víz.jpg"`,
-        information: 'Méh és virág'
-    }
 
-];
+
+
+function someth() {
+    something = false
+};
+
+function timer(time) {
+    myTimeOut = setTimeout(()=>{
+        if (step == imageContainer.length - 1) {
+            step = 0
+            sliderFunc()
+        // } else if(something == true) {
+        //     return
+        } else {
+            step++;
+            sliderFunc()}
+    }, time)
+}
+
 dotCreate()
-function sliderFunc() {
-    let count = 0
-
+function sliderFunc(height) {
+    let count = 0;
+    slider.style.height = height;
+    
     for (let i = 0; i < imageContainer.length; i++) {
         count++
         imagePlace.innerHTML = `<img ${imageContainer[step].image} alt=""></img>`;
         information.innerText = imageContainer[step].information;
         counter.innerText = `${imageContainer[step].index}/${count}`// Ezzel még lesz valami
-    }
-}
-sliderFunc();
+    };
+    timer(4000);   
+};
+
+sliderFunc('500px');
+
 rigthArrow.addEventListener('click', () => {
-    if (step == imageContainer.length -1) {
+    something = true;
+    if (step == imageContainer.length - 1) {
         step = 0
-        sliderFunc()
+        clearTimeout(myTimeOut);
+        sliderFunc();
+        
     } else {
-        step++;
-        sliderFunc()
+        step++;     
+        clearTimeout(myTimeOut)   
+        sliderFunc();
     }
-})
+});
+
 leftArrow.addEventListener('click', () => {
+    something = true;
     if (step == 0) {
-        step = imageContainer.length -1;
+        step = imageContainer.length - 1;
+        clearTimeout(myTimeOut)
         sliderFunc()
     } else {
         step--;
+        clearTimeout(myTimeOut)
         sliderFunc()
     }
-
-})
+});
 
 function dotCreate() {
     for (let i = 0; i < imageContainer.length; i++) {
-        let dot = document.createElement('DIV')
-        dot.classList.add('dot')
-        dot.classList.add('fa')
-        dot.classList.add('fa-circle')
-        dotContainer.appendChild(dot)
-    }
-}
+        let dot = document.createElement('DIV');
+        dot.classList.add('dot');
+        dot.classList.add('fa');
+        dot.classList.add('fa-circle');
+        dotContainer.appendChild(dot);
+        dot.addEventListener('click', () => {
+            step = i;            
+            sliderFunc();
+        })
+    };
+};
