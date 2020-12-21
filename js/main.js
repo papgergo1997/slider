@@ -33,7 +33,7 @@ const imageContainer = [
     }
 
 ];
-
+dotCreate()
 function sliderFunc() {
     let count = 0
 
@@ -46,7 +46,7 @@ function sliderFunc() {
 }
 sliderFunc();
 rigthArrow.addEventListener('click', () => {
-    if (step == imageContainer.length -1) {
+    if (step == imageContainer.length - 1) {
         step = -1
     } else {
         step++;
@@ -54,9 +54,21 @@ rigthArrow.addEventListener('click', () => {
     }
 })
 leftArrow.addEventListener('click', () => {
-    step--;
-    sliderFunc()
+    if (step < imageContainer.length) {
+        step == imageContainer.length - 1;
+    } else {
+        step--;
+        sliderFunc()
+    }
+
 })
 
-
-
+function dotCreate() {
+    for (let i = 0; i < imageContainer.length; i++) {
+        let dot = document.createElement('DIV')
+        dot.classList.add('dot')
+        dot.classList.add('fa')
+        dot.classList.add('fa-circle')
+        dotContainer.appendChild(dot)
+    }
+}
