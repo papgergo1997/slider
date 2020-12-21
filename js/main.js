@@ -34,7 +34,10 @@ function timer(time) {
     }, time)
 }
 
-dotCreate()
+dotCreate();
+
+
+
 function sliderFunc(height) {
     let count = 0;
     slider.style.height = height;
@@ -45,7 +48,7 @@ function sliderFunc(height) {
         information.innerText = imageContainer[step].information;
         counter.innerText = `${imageContainer[step].index}/${count}`// Ezzel még lesz valami
     };
-    timer(4000);   
+    timer(5000);   
 };
 
 sliderFunc('500px');
@@ -85,7 +88,8 @@ function dotCreate() {
         dot.classList.add('fa-circle');
         dotContainer.appendChild(dot);
         dot.addEventListener('click', () => {
-            step = i;            
+            step = i;  
+            clearTimeout(myTimeOut)          
             sliderFunc();
         })
     };

@@ -31,7 +31,6 @@ const imageContainer = [
         image: `src="./img/Bagolyág nélkül-v.jpg"`,
         information: 'Vadászat Közben'
     }
-
 ];
 
 export default imageContainer 

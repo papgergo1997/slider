@@ -135,12 +135,14 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: -70px;
+    margin-top: -90px;
+    font-size: larger;
 }
 
 .dot {
     margin: 3px;
     color: rgb(170, 170, 170);
+    
 }
 
 .active {
